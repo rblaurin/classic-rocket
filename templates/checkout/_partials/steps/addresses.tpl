@@ -37,13 +37,17 @@
       {/if}
 
       {if $use_same_address && !$cart.is_virtual}
+        <!-- 
         <p>
           {l s='The selected address will be used both as your personal address (for invoice) and as your delivery address.' d='Shop.Theme.Checkout'}
         </p>
+        --!>
       {elseif $use_same_address && $cart.is_virtual}
+        <!--
         <p>
           {l s='The selected address will be used as your personal address (for invoice).' d='Shop.Theme.Checkout'}
         </p>
+        --!>
       {/if}
 
       {if $show_delivery_address_form}
@@ -56,7 +60,7 @@
           }
         </div>
       {elseif $customer.addresses|count > 0}
-        <div id="delivery-addresses" class="address-selector js-address-selector row">
+        <div id="delivery-addresses" class="address-selector js-address-selector">
 
           {include  file        = 'checkout/_partials/address-selector-block.tpl'
                     addresses   = $customer.addresses
@@ -65,14 +69,15 @@
                     type        = "delivery"
                     interactive = !$show_delivery_address_form and !$show_invoice_address_form
           }
-            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                <a href="{$new_address_delivery_url}" class="card bg-light card--address">
-                    <span class="card-body_add-address">
-                        <i class="material-icons md-48">&#xe147;</i><br>{l s='add new address' d='Shop.Theme.Actions'}
-
+            {**Desabilita adicionar novo endereco
+            <div class="py-2 small">
+                <a href="{$new_address_delivery_url}">
+                    <span>
+                        {l s='add new address' d='Shop.Theme.Actions'}
                     </span>
                 </a>
             </div>
+            *}
         </div>
 
         {if isset($delivery_address_error)}
@@ -83,13 +88,13 @@
 
 
 
-        {if $use_same_address && !$cart.is_virtual}
+        {*if $use_same_address && !$cart.is_virtual}
           <p>
             <a class="text-underline text-primary" data-link-action="different-invoice-address" href="{$use_different_address_url}">
               {l s='Billing address differs from shipping address' d='Shop.Theme.Checkout'}
             </a>
           </p>
-        {/if}
+        {/if*}
 
       {/if}
 
@@ -107,7 +112,7 @@
             }
           </div>
         {else}
-          <div id="invoice-addresses" class="address-selector js-address-selector row">
+          <div id="invoice-addresses" class="address-selector js-address-selector">
             {include  file        = 'checkout/_partials/address-selector-block.tpl'
                       addresses   = $customer.addresses
                       name        = "id_address_invoice"
@@ -136,7 +141,7 @@
       {/if}
 
       {if !$form_has_continue_button}
-        <div class="clearfix">
+        <div class="clearfix mt-5">
           <button type="submit" class="btn btn-primary btn-lg continue" name="confirm-addresses" value="1">
               {l s='Continue' d='Shop.Theme.Actions'}
           </button>

@@ -24,9 +24,11 @@
  *}
 
 {block name='block_social'}
-  <div class="social-sharing col-lg-4 col-sm-12">
-      {foreach from=$social_links item='social_link'}
-       <a class="text-hide mb-2 social-share-btn social-share-btn--footer {$social_link.class}" href="{$social_link.url}" target="_blank" rel="nofollow noopener">{$social_link.label}</a>
-      {/foreach}
-  </div>
+	<div class="col-md-3">
+    	{foreach from=$social_links item='social_link'}
+      		<p class="footer__title footer__title--desktop">{l s='Share' d='Shop.Theme.Actions'}</p>
+      		<a class="text-hide mb-2 social-share-btn social-share-btn--footer {$social_link.class}" href="{$social_link.url}" target="_blank" rel="nofollow noopener">{$social_link.label}</a>
+      		<a href="#info_social_sharing" class="footer__title--mobile footer__title" data-toggle="collapse">{l s='Share' d='Shop.Theme.Actions'}</a>
+      	{/foreach}
+	</div>
 {/block}

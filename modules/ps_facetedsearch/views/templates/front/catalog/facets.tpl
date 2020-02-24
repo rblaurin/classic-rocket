@@ -31,7 +31,7 @@
     {block name='facets_clearall_button'}
       {if $activeFilters|count}
         <div class="clear-all-wrapper">
-          <button data-search-url="{$clear_all_link}" class="btn--clearfilter btn btn-sm btn-block btn-outline-secondary js-search-filters-clear-all">
+          <button data-search-url="{$clear_all_link}" class="btn--clearfilter btn btn-sm btn-light text-body js-search-filters-clear-all">
             <i class="material-icons">&#xE14C;</i>
             {l s='Clear all' d='Shop.Theme.Actions'}
           </button>
@@ -62,7 +62,7 @@
                 {if !$filter.displayed}
                   {continue}
                 {/if}
-                  <div class="custom-control custom-{if $facet.multipleSelectionAllowed}checkbox{else}radio{/if}{if isset($filter.properties.color) || isset($filter.properties.texture)} custom-color{/if}{if $filter.active} custom-control--active{/if}">
+                  <div class="custom-control custom-{if $facet.multipleSelectionAllowed}checkbox{else}radio{/if}{if isset($filter.properties.color) || isset($filter.properties.texture)} custom-color float-left{/if}{if $filter.active} custom-control--active{/if}">
                       <input
                               id="facet_input_{$_expand_id}_{$filter_key}"
                               data-search-url="{$filter.nextEncodedFacetsURL}"
@@ -72,18 +72,21 @@
                       >
                       <label class="custom-control-label" for="facet_input_{$_expand_id}_{$filter_key}">
                           {if isset($filter.properties.color)}
-                              <span class="color" style="background-color:{$filter.properties.color}"></span>
+                              <span class="color" style="background-color:{$filter.properties.color}" title="{$filter.label}"></span>
                           {elseif isset($filter.properties.texture)}
                               <span class="color texture" style="background-image:url({$filter.properties.texture})"></span>
-                          {/if}
-                          <span class="color__label">{$filter.label}
-                          {*{if $filter.magnitude and $show_quantities}*}
-                              {*<span class="magnitude">({$filter.magnitude})</span>*}
-                          {*{/if}*}
-                          </span>
+                          {/if}                          
+                          {if !isset($filter.properties.color)}
+                            <span class="color__label">{$filter.label}
+                              {if $filter.magnitude and $show_quantities}
+                                  <span class="magnitude">({$filter.magnitude})</span>
+                              {/if}
+                            </span>
+                          {/if}                         
                       </label>
                   </div>
               {/foreach}
+              <div class="clearfix"></div>
             </div>
           {/block}
 

@@ -53,7 +53,7 @@
             <td class="d--none d-lg-table-cell">{$order.details.payment}</td>
             <td>
               <span
-                class="badge badge-pill {$order.history.current.contrast}"
+                class="badge badge-pill {$order.history.current.contrast} text-white"
                 style="background-color:{$order.history.current.color}"
               >
                 {$order.history.current.ostate_name}

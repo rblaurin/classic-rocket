@@ -33,7 +33,7 @@
           <li>
             <a
                 id="{$link.id}-{$linkBlock.id}"
-                class="{$link.class}"
+                class="{$link.class} cms-page-link"
                 href="{$link.url}"
                 title="{$link.description}"
                 {if !empty($link.target)} target="{$link.target}" {/if}

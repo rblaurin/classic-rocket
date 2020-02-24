@@ -22,18 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="_desktop_cart" class="ml-3">
+<div id="_desktop_cart" class="my-auto">
   <div class="blockcart cart-preview {if $cart.products_count > 0}active{else}inactive{/if}" data-refresh-url="{$refresh_url}">
-    <div class="shopping-cart">
-      {if $cart.products_count > 0}
-        <a rel="nofollow" href="{$cart_url}" class="text-white">
-      {/if}
-        <span><i class="material-icons blockcart__icon">shopping_cart</i></span>
-        <span class="visible--desktop blockcart__label">{l s='Cart' d='Shop.Theme.Checkout'}</span>
-        <span class="cart-products-count small blockcart__count">({$cart.products_count})</span>
-      {if $cart.products_count > 0}
+    <div class="header position-relative">      
+        <a rel="nofollow" {if $cart.products_count > 0} href="{$cart_url}" {/if}>                    
+        <!--<span class="d-none d-md-inline">{l s='Cart' d='Shop.Theme.Checkout'}</span>!-->
+        <span class="cart-products-count small">{$cart.products_count}</span>
+        <i class="material-icons shopping-cart">shopping_cart</i>
+      
         </a>
-      {/if}
+      
     </div>
   </div>
 </div>

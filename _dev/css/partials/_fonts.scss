@@ -13,17 +13,18 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: $font-size-base*$line-height-base;  /* Preferred icon size */
+  font-size: $font-size-base;  /* *$line-height-base;Vezes a o tamanho da linha da base   Preferred icon size */
   display: inline-block;
   vertical-align: top;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
+  //width: 1em;
+  //height: 1em;
+  //line-height: 1; Linha da base
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  color: $gray-700;
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
@@ -39,6 +40,9 @@
 //fix height
 .material-icons + span{
   display: inline-block;
+}
+.xsmall {
+  font-size: 0.700rem;
 }
 .small .material-icons,
 .btn-sm .material-icons{

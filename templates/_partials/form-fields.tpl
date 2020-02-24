@@ -168,7 +168,7 @@
                         >
                         <span class="input-group-btn">
               <button
-                      class="btn btn-light"
+                      class="btn btn-sm"
                       type="button"
                       data-action="show-password"
                       data-text-show="{l s='Show' d='Shop.Theme.Actions'}"
@@ -177,10 +177,11 @@
                 {l s='Show' d='Shop.Theme.Actions'}
               </button>
             </span>
+                        
                         {include file='_partials/form-errors.tpl' errors=$field.errors required=$field.required label=$field.label}
 
-                    </div>
-                    <small class="form-text text-muted">{l s='At least 5 characters long' d='Shop.Forms.Help'}</small>
+                    </div>                    
+                    <small class="text-muted xsmall"><i class="material-icons priority_high">priority_high</i>{l s='Your password must be at least %min% characters long.' d='Shop.Forms.Help' sprintf=['%min%' => 5]}</small>
 
                 {/block}
 
@@ -195,7 +196,7 @@
                     <input
                             class="form-control{if !empty($field.errors)} is-invalid{/if}"
                             name="{$field.name}"
-                            type="{if $field.name === "phone" || $field.name === "phone_mobile"}tel{else}{$field.type}{/if}"
+                            type="{if $field.name === "phone"}tel{else}{$field.type}{/if}"
                             value="{$field.value}"
                             id="f-{$field.name}_{$uniqId}"
                             {if isset($field.availableValues.placeholder)}placeholder="{$field.availableValues.placeholder}"{/if}

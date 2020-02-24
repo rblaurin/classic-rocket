@@ -23,6 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='customer/page.tpl'}
+{block name='contentWrapperClass'}col-12 col-lg-8 offset-lg-2{/block}
 
 {block name='page_title'}
   {if $editing}

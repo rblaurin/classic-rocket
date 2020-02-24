@@ -24,12 +24,14 @@
  *}
 {block name='header'}
   {block name='header_nav'}
-      <nav class="header-nav border-bottom py-2 container">
+      <nav class="header-nav border-bottom py-2 container text--center">
         <div class="header-nav__container">
-        <a href="{$urls.base_url}">
-          <img class="logo img-fluid" src="{$shop.logo}" alt="{$shop.name} {l s='logo' d='Shop.Theme.Global'}">
-        </a>
-        <div>
+          <div class="col-md-2 p-0">
+            <a href="{$urls.base_url}">
+              <img class="logo img-fluid" src="{$urls.img_url}logotipo-25-de-marco-online.svg" alt="{$shop.name} {l s='logo' d='Shop.Theme.Global'}">
+            </a>
+          </div>
+        <div class="col-md-8 displayNav2 right-nav d-none d-md-flex">
           {widget name="ps_contactinfo" hook="displayNav"}
         </div>
         </div>

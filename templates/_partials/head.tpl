@@ -48,7 +48,7 @@
     <link rel="canonical" href="{$page.canonical}">
   {/if}
   {block name='head_hreflang'}
-      {if isset($urls.alternative_langs) && $urls.alternative_langs|count > 1}
+      {if isset($urls.alternative_langs)}
       {foreach from=$urls.alternative_langs item=pageUrl key=code}
         <link rel="alternate" href="{$pageUrl}" hreflang="{$code}">
       {/foreach}

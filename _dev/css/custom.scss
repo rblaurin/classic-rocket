@@ -1,0 +1,159 @@
+// Arquivo para costumização de CSS fora do padrão do theme ###
+// Personalização como por exemplo "breadcrumb ou alguma tag bootstrap"
+// Verificar a possibilidade de @importar CSS e JS de módulos de terceiros para compactar via Webpack
+
+
+// Alterar simbol breadcrumb
+.breadcrumb-item+.breadcrumb-item:before {
+	content: ">";
+}
+.breadcrumb {
+	background-color: #e8e8e8;
+}
+// Alterar tamanho do icone, segurança para o cliente
+.list-group-item img{
+	width: 16px;
+	height: 16px;
+}
+
+// Alterar dropdown "conta do cliente" para "hover com efeito"
+.dropdown-menu{
+	font-size: $small-font-size;
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+  top: 100%;
+}
+
+// Alterar formulário de busca no site que consta no "HEADER"
+.header-top{
+	.form-control {
+		border: 2px solid $primary;
+		border-right: 0 none;
+		border-radius: 4px 0 0 4px;
+	}
+	.btn-link {
+		background-color: $primary;
+    	border-radius: 0 4px 4px 0 !important;
+	}& i.search{
+		color: $white;
+	}
+}
+
+//Incluindo 'border-radius'(.rounded), 'shadow'(shadow-sm) na class 'card' do bootstrap
+//Incluindo 'backgroud-transparent'(.bg-transparent), na class 'card->list-group-item' do bootstrap
+//Incluindo 'border-radius-top'(.rounded-top), na class 'cardard-img-top' do bootstrap
+.card{
+	@extend .rounded;
+	@extend .shadow-sm;
+	@extend .border-0;
+	& .list-group-item {
+		@extend .bg-transparent;
+	}
+ }
+ .card-img-top{
+ 	@extend .rounded-top;
+ }
+
+//Incluindo 'border-radius'(.rounded), 'shadow'(shadow-sm) na class '.btn' do bootstrap
+//Melhorias nos button, deixando bordar arredondada, alteraçãos de cores
+ /*span.input-group-btn > button, button.slick-arrow, .input-group > button {
+ 	@extend .rounded-0;
+ 	@extend .shadow-none;
+ 	@extend .text-body;
+ }*/
+ .btn {
+ 	@extend .rounded;
+ 	//@extend .shadow-sm;
+ 	//@extend .text-white;
+ }
+ .btn-outline-primary:hover, .btn-primary{
+ 	@extend .text-white;
+ }
+ .bootstrap-touchspin {
+ 	@extend .rounded;
+ 	& .btn {
+ 		@extend .bg-transparent;
+ 		@extend .text-body;
+ 	}
+ }
+ //Botão do modal
+ .modal-footer {
+ 	.btn-outline-secondary {
+ 		@extend .text-body;
+ 	}& .btn-outline-secondary:hover {
+ 		@extend .text-white;
+ 	}& i {
+ 		@extend .d-none;
+ 	}
+ }
+//Pernalizando "label > checked,hover, focus" validar se está correto a ordem e sem conflitos
+input:checked ~ label,
+input:hover ~ label,
+input:focus ~ label {
+	cursor: pointer;
+ 	> .card {
+ 		border-left: 5px solid $green-100!important;
+ 		background-color: $gray-100;
+ 	    & .carrier-svg{	 		
+			height: 20px;
+			display: block;						
+			background-repeat: no-repeat;
+			background-position: center center;			
+			background-image: url(../img/shipped.svg);			
+		}
+	}
+}
+
+//seguraça e forma de pagamento footer, credit-card
+.seguranca-credibilidade {
+	width: 90px;
+	height: 30px;	
+	background-repeat: no-repeat;
+	background-size:80%;
+	&.clearsale {
+		background-image: url(../img/selo-clearsale.png);
+	}
+	&.safe_google {
+		background-image: url(../img/safe_google.png);
+	}
+	&.safe_norton {
+		background-image: url(../img/safe_norton.png);
+	}
+}
+
+.credit-card {
+	width: 58px;
+	height: 30px;	
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:80%;
+	&.mastercard {
+		background-image: url(../img/mastercard.svg);
+	}
+	&.visa {
+		background-image: url(../img/visa.svg);
+	}
+	&.amex {
+		background-image: url(../img/amex.svg);
+	}
+	&.diners {
+		background-image: url(../img/diners.svg);
+	}
+	&.elo {
+		background-image: url(../img/elo.svg);
+	}
+	&.hiper {
+		background-image: url(../img/hiper.svg);
+	}
+	&.hipercard {
+		background-image: url(../img/hipercard.svg);
+	}
+	&.jcb {
+		background-image: url(../img/jcb.svg);
+	}
+	&.barcode {
+		background-image: url(../img/barcode.svg);
+		width: 48px;
+	}
+}

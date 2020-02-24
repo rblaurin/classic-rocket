@@ -43,7 +43,7 @@
 
         <div class="add col">
           <button
-            class="btn btn-primary add-to-cart btn-lg btn-block btn-add-to-cart js-add-to-cart"
+            class="btn btn-success add-to-cart btn-block btn-add-to-cart js-add-to-cart"
             data-button-action="add-to-cart"
             type="submit"
             {if !$product.add_to_cart_url}

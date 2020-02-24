@@ -26,8 +26,8 @@
     <div class="col-12 col-md-7">
         <div class="media">
             <img src="{$product.cover.bySize.cart_default.url}" alt="{$product.name|escape:'quotes'}"
-                 class="product-line__img" width="{$product.cover.bySize.cart_default.width}"
-                 height="{$product.cover.bySize.cart_default.height}">
+                 class="product-line__img" {*width="{$product.cover.bySize.cart_default.width}"
+                 height="{$product.cover.bySize.cart_default.height}"*}>
             <div class="media-body product-line__body">
                 <a class="h5 product-line__title" href="{$product.url}"
                    data-id_customization="{$product.id_customization|intval}">{$product.name}</a>
@@ -49,7 +49,7 @@
                     {/if}
 
                     <div class="current-price">
-                        <span class="current-price-display price{if $product.has_discount} current-price-discount{/if}">{$product.price}</span>
+                        <span class="price current-price">{$product.price}</span>
                         {if $product.unit_price_full}
                             <div class="unit-price-cart">{$product.unit_price_full}</div>
                         {/if}

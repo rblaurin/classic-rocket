@@ -48,45 +48,56 @@
 
   {else}
 
-    <ul class="nav nav-tabs nav-tabs--center my-2 nav-tabs-info" role="tablist">
-      <li class="nav-item">
-        <a
-          class="nav-link {if !$show_login_form}active{/if}"
-          data-toggle="tab"
-          href="#checkout-guest-form"
-          role="tab"
-          aria-controls="checkout-guest-form"
-          {if !$show_login_form} aria-selected="true"{/if}
-          >
-          {if $guest_allowed}
-            {l s='Order as a guest' d='Shop.Theme.Checkout'}
-          {else}
-            {l s='Create an account' d='Shop.Theme.Customeraccount'}
-          {/if}
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a
-          class="nav-link {if $show_login_form}active{/if}"
-          data-link-action="show-login-form"
-          data-toggle="tab"
-          href="#checkout-login-form"
-          role="tab"
-          aria-controls="checkout-login-form"
-          {if $show_login_form} aria-selected="true"{/if}
-        >
-          {l s='Sign in' d='Shop.Theme.Actions'}
-        </a>
-      </li>
-    </ul>
+    
     <div class="tab-content">
-      <div class="checkout-form tab-pane {if !$show_login_form}active{/if}" id="checkout-guest-form" role="tabpanel" {if $show_login_form}aria-hidden="true"{/if}>
+      <div class="checkout-form tab-pane" id="checkout-guest-form" role="tabpanel" {if !$show_login_form}aria-hidden="true"{/if}>
         {render file='checkout/_partials/customer-form.tpl' ui=$register_form guest_allowed=$guest_allowed}
       </div>
-      <div class="checkout-form tab-pane {if $show_login_form}active{/if}" id="checkout-login-form" role="tabpanel" {if !$show_login_form}aria-hidden="true"{/if}>
+      <div class="checkout-form tab-pane active" id="checkout-login-form" role="tabpanel" {if $show_login_form}aria-hidden="true"{/if}>
         {render file='checkout/_partials/login-form.tpl' ui=$login_form}
       </div>
+      <div class="col-9 login-account small">
+        <ul class="nav nav-tabs mt-3" role="tablist">
+          <li class="nav-item">
+            <a
+              {if $show_login_form}
+                class="nav-link {if !$show_login_form}active{/if}"
+              {else}
+                class="nav-link {if $show_login_form}active{/if}"
+              {/if}
+              data-toggle="tab"
+              href="#checkout-guest-form"
+              role="tab"
+              aria-controls="checkout-guest-form"
+              {if $show_login_form} aria-selected="true"{/if}
+              >
+              {if $guest_allowed}
+                {l s='Order as a guest' d='Shop.Theme.Checkout'}
+              {else}
+                {l s='Create an account' d='Shop.Theme.Customeraccount'} <i class="material-icons">person_add</i>
+              {/if}
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              {if !$show_login_form}
+                class="nav-link {if !$show_login_form}active{/if}"
+              {else}
+                class="nav-link {if $show_login_form}active{/if}"
+              {/if}
+              data-link-action="show-login-form"
+              data-toggle="tab"
+              href="#checkout-login-form"
+              role="tab"
+              aria-controls="checkout-login-form"
+              {if !$show_login_form} aria-selected="true"{/if}
+            >
+              {l s='Sign in' d='Shop.Theme.Actions'} <i class="material-icons">person_outline</i>
+            </a>
+          </li>
+        </ul>
+      </div>    
     </div>
 
 

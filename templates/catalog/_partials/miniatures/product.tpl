@@ -32,22 +32,26 @@
                         {if $product.cover}
                             <img
                                     data-src = "{$product.cover.bySize.home_default.url}"
-                                    alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+                                    alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:60:'...'}{/if}"
                                     data-full-size-image-url = "{$product.cover.large.url}"
                                     class="lazyload"
                             >
                         {elseif isset($urls.no_picture_image)}
-                            <img class="lazyload" src="{$urls.no_picture_image.bySize.home_default.url}">
+                                <img src = "{$urls.no_picture_image.bySize.home_default.url}">
                         {else}
-                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                <img src = "data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
                         {/if}
                     </a>
                 {/block}
                 <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} visible--desktop">
-                    {block name='quick_view'}
-                        <span class="quick-view" data-link-action="quickview">
-                      <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}
-                  </span>
+                    {block name='quick_view'}                        
+                        {block name='product_name'}
+                            {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
+                                <h2 class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:60:'...'}</a></h2>
+                            {else}
+                                <p class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:60:'...'}</a></p>
+                            {/if}
+                        {/block}
                     {/block}
 
                     {block name='product_variants'}
@@ -59,45 +63,40 @@
             </div>
             {* end card-img-top*}
 
-            <div class="card-body">
-                <div class="product-description product__card-desc">
-                    {block name='product_name'}
-                        {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
-                        <h2 class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></h2>
-                        {else}
-                            <p class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></p>
-                        {/if}
-                    {/block}
-                    {block name='product_reviews'}
-                        {hook h='displayProductListReviews' product=$product}
-                    {/block}
-                    {block name='product_price_and_shipping'}
-                        {if $product.show_price}
-                            <div class="product-price-and-shipping text-center">
-                                {if $product.has_discount}
-                                    {hook h='displayProductPriceBlock' product=$product type="old_price"}
+            <div class="card-body">                
+                {block name='product_price_and_shipping'}
+                    {if $product.show_price}
+                        <div class="product-price-and-shipping price-box">  
+                            {if $product.has_discount}
+                                {hook h='displayProductPriceBlock' product=$product type="old_price"}
 
-                                    <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
-                                    <span class="regular-price">{$product.regular_price}</span>
+                                <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
+                                <span class="regular-price regular-position-price">{$product.regular_price}</span>
 
-                                {/if}
+                            {/if}
 
                                 {hook h='displayProductPriceBlock' product=$product type="before_price"}
-
                                 <span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span>
-                                <span class="price{if $product.has_discount} current-price-discount{/if}">{$product.price}</span>
+                                <span class="price">{$product.price}</span>
 
 
+                                {block name='product_flags'}
+                                    {foreach from=$product.flags item=flag}
+                                        <span class="product-desconto {$flag.type}">{$flag.label}</span>
+                                    {/foreach}
+                                    {if $product.discount_type === 'percentage'}
+                                        <span class="product-desconto desconto-porcentagem">{$product.discount_percentage} OFF</span>
+                                    {elseif $product.discount_type === 'amount'}
+                                        <span class="product-desconto desconto-valor">{$product.discount_amount_to_display}</span>
+                                    {/if}
+                                {/block}
+
+                                <span class="product-desconto juros-price">12x R$ 7,04 sem juros</span>
                                 {hook h='displayProductPriceBlock' product=$product type='unit_price'}
-
                                 {hook h='displayProductPriceBlock' product=$product type='weight'}
-                            </div>
-                        {/if}
-                    {/block}
-
-
-                </div>
-
+                        </div>
+                    {/if}
+                {/block}
             </div>
             {* end card body*}
             {block name='product_flags'}

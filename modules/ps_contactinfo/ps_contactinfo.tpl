@@ -29,11 +29,10 @@
 
 
   <div id="footer_store_info" class="account-list collapse show" data-collapse-hide-mobile>
-      {$contact_infos.address.formatted nofilter}
-      {if $contact_infos.phone}
-        <br>
+      {*$contact_infos.address.formatted nofilter*}
+      {if $contact_infos.phone}        
         {* [1][/1] is for a HTML tag. *}
-        {l s='Call us: [1]%phone%[/1]'
+        {l s='[1]%phone%[/1]'
           sprintf=[
           '[1]' => '<span>',
           '[/1]' => '</span>',
@@ -59,7 +58,7 @@
         <br>
         {* [1][/1] is for a HTML tag. *}
         {l
-          s='Email us: [1]%email%[/1]'
+          s='[1]%email%[/1]'
           sprintf=[
             '[1]' => '<a href="mailto:'|cat:$contact_infos.email|cat:'" class="dropdown">',
             '[/1]' => '</a>',
@@ -68,6 +67,10 @@
           d='Shop.Theme.Global'
         }
       {/if}
+      <br>
+        De Seg. à Sex. das 08:30 às 17:00
+        <br>
+        Sáb. das 8:00 às 12:00
   </div>
 
 </div>

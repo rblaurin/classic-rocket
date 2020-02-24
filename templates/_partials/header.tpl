@@ -29,7 +29,7 @@
 {/block}
 
 {block name='header_nav'}
-  <nav class="header-nav">
+  <nav class="header-nav border-bottom">
     <div class="container header__container">
       <div class="row visible--desktop displayNav1">
         <div class="col-md-4">
@@ -59,15 +59,21 @@
 {/block}
 
 {block name='header_top'}
-  <div class="header-top">
+  <div class="header-top border-bottom">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-2 visible--desktop" id="_desktop_logo">
+        <div class="col-md-2 visible--desktop pl-2 pr-0" id="_desktop_logo">
           <a href="{$urls.base_url}">
-            <img class="logo img-fluid" src="{$shop.logo}" alt="{$shop.name}">
+            <img class="logo img-fluid" src="{$urls.img_url}logotipo-25-de-marco-online.svg" alt="{$shop.name} {l s='logo' d='Shop.Theme.Global'}">
           </a>
         </div>
         <div class="col-md-10 col-sm-12 displayTop">
+            {**Exemplo de como ficará o menu - Criar módulo*}
+                <div class="d-flex align-items-center mr-2">
+                    <button id="menu-icon" class="btn btn-light d-sm-none d-md-block" data-toggle="modal" data-target="#mobile_top_menu_wrapper" style="height: 35px;">
+                    <i class="material-icons d-inline">&#xE5D2; keyboard_arrow_down</i></button>
+                </div>
+            {**Exemplo de como ficará o menu *}
             {hook h='displayTop'}
         </div>
       </div>

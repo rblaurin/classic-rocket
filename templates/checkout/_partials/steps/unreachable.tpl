@@ -23,6 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='step'}
+ {if $mostraSteps == "on" }
   <section class="checkout-step -unreachable card" id="{$identifier}">
     <div class="card-header">
     <h1 class="step-title h3">
@@ -30,4 +31,5 @@
     </h1>
     </div>
   </section>
+ {/if}
 {/block}

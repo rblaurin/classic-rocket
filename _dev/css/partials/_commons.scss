@@ -49,7 +49,50 @@ sup{
   margin-bottom: $spacer;
 }
 /* HEADER */
+.right-nav a {
+  border: none;
+  left: 12px;
+  padding: 0 11px;
+  font-size: 14px;
+}
+.l-header{
+  background-color: $header-bg;
+  margin-bottom: $spacer;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+}
+.logo{
+  vertical-align: inherit;
+}
+#header .cart-products-count {
+  color: $white;
+  background: $primary;
+  max-width: 25px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: -17px;
+  left: -1px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  padding: 0 2px; 
+}
+@include media-breakpoint-down(sm) {
+  .header__container{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .logo{
+    width:100%;
+    max-width: 180px;
+  }
+  #header .cart-products-count{
+    top: -10px;
+    left: -2px;
+  }
 
+}
 /* FOOTER */
 .l-footer{
   background-color: $footer-bg;
@@ -63,8 +106,7 @@ ul {
   padding-left: 0;
 }
 h1,.h1{
-  text-transform: $h1-text-transform;
-
+  font-weight: $display2-weight;
 }
 .quick-view{
   display: inline-block;
@@ -187,9 +229,10 @@ display: inline-block;
 .-current .step-title .done {
   visibility: hidden;
 }
+/*
 .-current .card-header{
   background-color: $white;
-}
+}*/
 
 
 .accordion {
@@ -246,9 +289,6 @@ display: inline-block;
     display: none;
   }
 }
-.carrier-name{
-  font-weight: $font-weight-bold;
-}
   .carrier-price{
     font-weight: bold;
     font-size: $font-size-lg;
@@ -263,7 +303,32 @@ display: inline-block;
   border: 3px solid $card-border-color;
 }
 
-
+//prices
+.price-box{
+  position: relative;
+}
+.regular-price, .product-regular-price{
+  text-decoration: line-through;
+  font-size: $regular-price-font-size;
+  color: $regular-price-color;
+  font-weight: $regular-price-font-weight;
+  &.regular-position-price{
+    position: absolute;
+    top: -11px;
+    left: 1px;
+  }
+}
+.price{
+  font-weight: $price-font-weight;
+  color:$black;   color: $price-color;
+  font-size: $price-size;
+}
+.product-desconto{
+  color: $green-100;
+  &.juros-price{
+    display: block;
+    }
+}
 //forms
 custom-file-label.selected:after{
   content: "" !important;
@@ -276,7 +341,6 @@ custom-file-label.selected:after{
 .nav-tabs  {
   .nav-link{
   color:$gray-600;
-  font-weight: 700;
   }
   .nav-link.active,
   .nav-item.show .nav-link {
@@ -286,22 +350,24 @@ custom-file-label.selected:after{
 .tab-content{
   padding-top: $spacer;
 }
+.login-account{
+    margin: 0 auto;
+    .nav-link.active {
+      display: none;
+    }
+}
 //products-section-title
 .products-section-title{
-  text-transform: $section-title-text-transform;
-  text-align: $section-title-text-align;
+  text-align: center;
   display: block;
-  margin-bottom: $section-title-margin-bottom;
+  margin-bottom: $spacer;
   @extend .h1;
-  font-family: $section-title-font-family;
-  color:$section-title-color;
-  font-size:$section-title-size;
-  font-weight:$section-title-font-weight;
+  font-weight: 100;
 }
 
 //home content spacing
 .page-home > *{
-  margin-bottom: $spacer-y;
+  margin-bottom: $spacer * .75;
 }
 
 @include media-breakpoint-down(sm) {

@@ -52,7 +52,7 @@
   border-radius: 50%;
   transition: box-shadow 0.3s ease-in-out;
   &:hover{
-    box-shadow:$card-box-shadow;;
+    box-shadow:$card-box-shadow;
 
   }
 
@@ -83,9 +83,14 @@
 
 }
 .social-share-btn--footer {
-  transition: background-color 0.3s ease-in-out;
+  background-size:80%;
+  background-color: $primary;
+  @extend .shadow-sm;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease-in-out;
   &:hover{
-    background-color: theme-color('primary');
+    @extend .shadow;
+    background-color: $gray-200;
   }
 }
 //

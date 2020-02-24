@@ -23,6 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends 'customer/page.tpl'}
+{block name='contentWrapperClass'}col-12 col-lg-8 offset-lg-2{/block}
 
 {block name='page_title'}
   {l s='Your personal information' d='Shop.Theme.Customeraccount'}

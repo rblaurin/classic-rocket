@@ -23,6 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
+{block name='contentWrapperClass'}col-12 col-lg-8 offset-lg-2{/block}
 
 {block name='page_title'}
   {l s='Forgot your password?' d='Shop.Theme.Customeraccount'}
@@ -54,9 +55,9 @@
           <input type="email" name="email" id="email" value="{if isset($smarty.post.email)}{$smarty.post.email|stripslashes}{/if}" class="form-control" required autocomplete="email">
           <div class="invalid-feedback js-invalid-feedback-browser"></div>
       </div>
-      <button class="form-control-submit btn btn-primary" name="submit" type="submit">
-        <span class="visible--desktop">{l s='Send reset link' d='Shop.Theme.Actions'}</span>
-        <span class="visible--mobile">{l s='Send' d='Shop.Theme.Actions'}</span>
+      <button class="form-control-submit btn btn-primary visible--mobile" name="submit" type="submit">
+        <span class="visible--mobile">{l s='Send reset link' d='Shop.Theme.Actions'}</span>
+        <span class="d-sm-none">{l s='Send' d='Shop.Theme.Actions'}</span>
       </button>
 
     </section>
